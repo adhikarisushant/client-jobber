@@ -6,7 +6,7 @@ import App from './App';
 import { AppProvider } from './context/appContext'
 
 ReactDOM.render(
-  <React.StrictMode>
+  <React.StrictMode>  
     <AppProvider>
       <App />
     </AppProvider>
