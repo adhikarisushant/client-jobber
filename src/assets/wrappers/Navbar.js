@@ -38,7 +38,6 @@ const Wrapper = styled.nav`
     position: relative;
     box-shadow: var(--shadow-2);
   }
-
   .dropdown {
     position: absolute;
     top: 40px;
@@ -69,7 +68,6 @@ const Wrapper = styled.nav`
   @media (min-width: 992px) {
     position: sticky;
     top: 0;
-
     .nav-center {
       width: 90%;
     }

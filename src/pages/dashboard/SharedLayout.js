@@ -1,5 +1,5 @@
 import { Link, Outlet } from "react-router-dom"
-import Wrapper from "../../assets/wrappers/LandingPage"
+import Wrapper from "../../assets/wrappers/SharedLayout"
 import  {Navbar, BigSidebar, SmallSidebar} from '../../components'
 
 const SharedLayout = () => {
@@ -20,3 +20,5 @@ const SharedLayout = () => {
 }
 
 export default SharedLayout
+
+
