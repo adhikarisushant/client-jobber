@@ -95,6 +95,7 @@ const Register = () => {
                 <button type='submit' className='btn btn-block' disabled={isLoading}>
                     submit
                 </button>
+            
                 {/* toggle button */}
                 <p>
                     {values.isMember ? 'Not a member yet?' : 'Already a member?'}
