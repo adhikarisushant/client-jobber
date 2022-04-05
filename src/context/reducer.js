@@ -21,6 +21,7 @@ import { DISPLAY_ALERT,
         CREATE_JOB_ERROR,
         GET_JOBS_BEGIN,
         GET_JOBS_SUCCESS,
+        SET_EDIT_JOB,
     } from "./actions"
 
 import { initialState } from "./appContext"
@@ -233,6 +234,22 @@ const reducer = (state, action) => {
             jobs: action.payload.jobs,
             totalJobs: action.payload.totalJobs,
             numOfPages: action.payload.numOfPages,
+        }
+    }
+
+    if (action.type === SET_EDIT_JOB) {
+        const job = state.jobs.find((job) => job._id === action.payload.id)
+        const { _id, position, company, jobLocation, jobType, status } = job
+        
+        return {
+            ...state,
+            isEditing: true,
+            editJobId: _id,
+            position,
+            company,
+            jobLocation,
+            jobType,
+            status,
         }
     }
 
