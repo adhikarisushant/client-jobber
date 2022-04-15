@@ -34,6 +34,7 @@ import { DISPLAY_ALERT,
         SHOW_STATS_BEGIN,
         SHOW_STATS_SUCCESS,
         CLEAR_FILTERS,
+        CHANGE_PAGE,
     } from './actions'
 
 const token = localStorage.getItem('token')
@@ -245,8 +246,8 @@ const AppProvider = ({children}) => {
     }
 
     const getJobs = async () => {
-        const { search, searchStatus, searchType, sort } = state
-        let url = `/jobs?status=${searchStatus}&jobType=${searchType}&sort=${sort}`
+        const { page, search, searchStatus, searchType, sort } = state
+        let url = `/jobs?page=${page}&status=${searchStatus}&jobType=${searchType}&sort=${sort}`
         if (search) {
           url = url + `&search=${search}`
         }
@@ -333,8 +334,12 @@ const AppProvider = ({children}) => {
         dispatch({ type: CLEAR_FILTERS })
     }
 
+    const changePage = (page) => {
+        dispatch({ type: CHANGE_PAGE, payload: { page } })
+    }
+
     return (
-        <AppContext.Provider value={{ ...state, displayAlert, registerUser, loginUser, setupUser, toggleSidebar, logoutUser, updateUser, handleChange, clearValues, createJob, getJobs, setEditJob, deleteJob, editJob, showStats, clearFilters, }}>
+        <AppContext.Provider value={{ ...state, displayAlert, registerUser, loginUser, setupUser, toggleSidebar, logoutUser, updateUser, handleChange, clearValues, createJob, getJobs, setEditJob, deleteJob, editJob, showStats, clearFilters, changePage, }}>
             {children}
         </AppContext.Provider>
     )
