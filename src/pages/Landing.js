@@ -14,7 +14,7 @@ const Landing = () => {
                 <div className="info">
                     <h1>job <span>tracking</span> app</h1>
                     <p>
-                        I'm baby green juice hot chicken woke la croix fam next level chartreuse wayfarers gentrify viral mumblecore glossier pok pok butcher. Salvia kogi normcore viral man braid waistcoat, marfa palo santo raw denim.
+                    Track your interviews and land your dream job. This is a Full Stack Application built with MongoDB, Express, React and NodeJS.
                     </p>
                     <Link to='/register' className='btn btn-hero'>
                         Login / Register
