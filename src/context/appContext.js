@@ -33,6 +33,7 @@ import { DISPLAY_ALERT,
         EDIT_JOB_ERROR,
         SHOW_STATS_BEGIN,
         SHOW_STATS_SUCCESS,
+        CLEAR_FILTERS,
     } from './actions'
 
 const token = localStorage.getItem('token')
@@ -244,7 +245,11 @@ const AppProvider = ({children}) => {
     }
 
     const getJobs = async () => {
-        let url = `/jobs`
+        const { search, searchStatus, searchType, sort } = state
+        let url = `/jobs?status=${searchStatus}&jobType=${searchType}&sort=${sort}`
+        if (search) {
+          url = url + `&search=${search}`
+        }
 
         dispatch({ type: GET_JOBS_BEGIN })
         try {
@@ -325,7 +330,7 @@ const AppProvider = ({children}) => {
     }
 
     const clearFilters = () => {
-        console.log('clear filters')
+        dispatch({ type: CLEAR_FILTERS })
     }
 
     return (
